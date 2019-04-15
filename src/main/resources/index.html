@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>MurmurHash-js Tests</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.0.min.js"
+            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+            crossorigin="anonymous"></script>
+    <script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
+    <script src="MurmurHash3-js.js"></script>
+    <script src="test.js"></script>
+</head>
+<body>
+<div style="border:1px; margin:10px; padding:10px;">
+    <b>Compare the outputs of Java and JavaScript MurmurHash functions.</b><br/>
+    <p>This program sends multiple hashing requests to the Java server, gets the results and compares them with their JavaScript outputs.
+        If the results are same for corresponding inputs, it prints "OK". If not, it prints "BAD". </p>
+    <table border="0">
+    <tr><td><label for="start">Start from:</label></td><td><input type="text" id="start" placeholder="start" value="0"></td></tr>
+        <tr><td><label for="stop">Stop at:</label></td><td><input type="text" id="stop" placeholder="stop" value="100"></td></tr>
+        <tr><td><label for="seedStart">Start seed from:</label></td><td><input type="text" id="seedStart" placeholder="seed start" value="0"></td></tr>
+        <tr><td><label for="seedStop">Stop seed at:</label></td><td><input type="text" id="seedStop" placeholder="seed stop" value="5"></td></tr>
+        <tr><td><label for="showHashes">Show hashes?:</label></td><td><input type="checkbox" id="showHashes"></td></tr>
+        <tr><td colspan="2"><input type="button" id="startButton" value="Start Test" onclick="start()"></td>
+    </table>
+</div>
+<div id="output" style="border:1px; margin:10px; padding:10px; overflow-y:scroll; height:500px;"></div>
+</body>
+</html>

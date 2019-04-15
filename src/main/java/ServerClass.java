@@ -1,6 +1,9 @@
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.DefaultHandler;
+import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.server.handler.ResourceHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,22 +18,32 @@ public class ServerClass implements Handler {
 
 
     public void startServer() throws Exception {
-
-
         int port = 8890;
-
 
         Server server = new Server(port);
         server.setHandler(this);
+
+        ResourceHandler resource_handler = new ResourceHandler();
+
+        // Configure the ResourceHandler. Setting the resource base indicates where the files should be served out of.
+        // In this example it is the current directory but it can be configured to anything that the jvm has access to.
+        resource_handler.setDirectoriesListed(true);
+        resource_handler.setWelcomeFiles(new String[]{ "index.html" });
+        resource_handler.setResourceBase("src/main/resources/");
+
+        // Add the ResourceHandler to the server.
+        HandlerList handlers = new HandlerList();
+        handlers.setHandlers(new Handler[] { this, resource_handler, new DefaultHandler()});
+        server.setHandler(handlers);
+
         server.start();
         server.join();
     }
 
     public void handle(String s, Request request, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException, ServletException {
-        if(request.getRequestURI().equals("/murmur")) {
+        if(request.getRequestURI().equals("/murmur.hash")) {
             httpServletResponse.addHeader("Access-Control-Allow-Origin", "*");
             httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
-            log.info(request.getParameter("key") + ","+ request.getParameter("seed")) ;
             int hash = MurmurHash3_x86_32.hash(Long.valueOf(request.getParameter("key")), Integer.valueOf(request.getParameter("seed")));
             httpServletResponse.setStatus(200);
             PrintWriter writer = httpServletResponse.getWriter();
