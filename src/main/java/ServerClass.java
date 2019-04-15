@@ -44,7 +44,7 @@ public class ServerClass implements Handler {
         if(request.getRequestURI().equals("/murmur.hash")) {
             httpServletResponse.addHeader("Access-Control-Allow-Origin", "*");
             httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
-            int hash = MurmurHash3_x86_32.hash(Long.valueOf(request.getParameter("key")), Integer.valueOf(request.getParameter("seed")));
+            int hash = MurmurHash3_32_Long.hash(Long.valueOf(request.getParameter("key")), Integer.valueOf(request.getParameter("seed")));
             httpServletResponse.setStatus(200);
             PrintWriter writer = httpServletResponse.getWriter();
             httpServletResponse.setContentType("application/json");

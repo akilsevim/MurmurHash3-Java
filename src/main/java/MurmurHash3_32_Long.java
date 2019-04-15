@@ -1,9 +1,9 @@
-public abstract class MurmurHash3_x86_32_Long {
+public abstract class MurmurHash3_32_Long {
 
     private static int C1 = 0xcc9e2d51;
     private static int C2 = 0x1b873593;
 
-    public static int hash(long key, int seed) {
+    static int hash(long key, int seed) {
         int low = (int) key;
         int high = (int) (key >>> 32);
 
