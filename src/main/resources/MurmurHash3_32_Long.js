@@ -5,8 +5,8 @@ function MurmurHash3_32_Long(key, seed) {
     //key needs to be an instance of bigInt and Long type
     if(!bigInt.isInstance(key) || key.bitLength().gt(64)) return 0;
 
-    var c1 = bigInt(0xcc9e2d51); //-862048943 3432918353 -3432918353 cc9e2d51 3432918353
-    var c2 = bigInt(0x1b873593); //461845907 461845907
+    var c1 = bigInt(0xcc9e2d51);
+    var c2 = bigInt(0x1b873593);
 
     var low = key.and("0xffffffff");
     var high = key.shiftRight(32);
