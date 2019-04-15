@@ -1,4 +1,4 @@
-public abstract class MurmurHash3_x86_32 {
+public abstract class MurmurHash3_x86_32_Long {
 
     private static int C1 = 0xcc9e2d51;
     private static int C2 = 0x1b873593;

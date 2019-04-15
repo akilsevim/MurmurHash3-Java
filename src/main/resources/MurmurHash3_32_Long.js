@@ -1,7 +1,7 @@
 /**
  * @return {number}
  */
-function MurmurHash(key, seed) {
+function MurmurHash3_32_Long(key, seed) {
     //key needs to be an instance of bigInt and Long type
     if(!bigInt.isInstance(key) || key.bitLength().gt(64)) return 0;
 

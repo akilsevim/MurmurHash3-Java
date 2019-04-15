@@ -18,7 +18,7 @@ function start() {
 
 var count = 0;
 function verify(hash_Java) {
-    var hash_JavaScript = MurmurHash(bigInt(hash_Java[0]), parseInt(hash_Java[1]));
+    var hash_JavaScript = MurmurHash3_32_Long(bigInt(hash_Java[0]), parseInt(hash_Java[1]));
 
     var hash_compare = "";
     if($("#showHashes").prop("checked")) hash_compare = ", " +hash_JavaScript + " = " + hash_Java[2];
