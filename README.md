@@ -4,7 +4,7 @@
 This program prepared to have same hashing results from both Java and JavaScript for Long inputs.
 
 ## Usage
-To use Java version, just add the MurmurHash3_32_Long class into your sources folder and use it as described above.
+To use Java version, just add the MurmurHash3_32_Long class into your sources folder and use it as described below.
 
 ```java
 int seed = 0;

@@ -35,7 +35,7 @@ public class ServerClass implements Handler {
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[] { this, resource_handler, new DefaultHandler()});
         server.setHandler(handlers);
-
+        log.info("Server is being started at: http://localhost:" + port);
         server.start();
         server.join();
     }
