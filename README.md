@@ -1,5 +1,5 @@
 # MurmurHash3_32_Long
-**Java and JavaScript implementation of [MurmurHash3](https://github.com/aappleby/smhasher)'s x86_32 hashing algorithm for Long type inputs.**
+**Java and JavaScript implementation of [MurmurHash3](https://github.com/aappleby/smhasher)'s x86_32 hashing algorithm producing same hashes for Long typed inputs.**
 
 This program prepared to have same hashing results from both Java and JavaScript for Long inputs.
 
